@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment files
+.env
+.env.*.local
+
+# Ignore server node_modules too (if not nested already)
+server/node_modules/
+client/node_modules/
+
+# Mac system file (already included, but repeat if needed)
+.DS_Store
