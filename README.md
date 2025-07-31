@@ -1,12 +1,50 @@
-# React + Vite
+# 🌍 Travel First – Smart Packing Tips Based on Destination & Weather
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7d4c6ea0-18a9-49b6-a623-bc9f487d30c7/deploy-status)](https://travel-first-bali.netlify.app/)
 
-Currently, two official plugins are available:
+Welcome to **Travel First**, a smart travel assistant that helps you plan for any trip with personalized, weather-aware travel tips and essentials — all with a beautiful dark/light toggle and curated best practices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🌐 Live Demo  
+👉 [https://travel-first-bali.netlify.app](https://travel-first-bali.netlify.app)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- ✅ **Top 10 Travel Tips** with helpful external resources
+- ☀️🌙 **Dark Mode Toggle** for day or night use
+- 🌡️ **Real-time Weather** by destination
+- 🎒 **Auto-Generated Essentials List** based on location, climate, and travel type
+- 🔗 **Helpful "Learn More" links** for deeper travel prep
+
+---
+
+## 🔧 Tech Stack
+
+- **Frontend**: React + Vite
+- **API**: OpenWeatherMap
+- **Styling**: Responsive CSS (light/dark themes)
+- **Deployment**: Netlify
+
+---
+
+## 📁 Project Setup
+
+```bash
+npm install
+npm run dev
+Make sure to add your OpenWeatherMap API key to a .env file:
+
+bash
+Copy
+Edit
+VITE_WEATHER_API_KEY=your_api_key_here
+🚀 Deployment
+Deployed using Netlify
+🔗 Live Site
+
+🤝 Contributing
+Open to contributions and enhancements — feel free to fork or open a pull request!
+
+📘 License
+MIT © Keith Mazza
