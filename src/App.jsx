@@ -1,77 +1,115 @@
-// src/App.jsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [location, setLocation] = useState('');
-  const [month, setMonth] = useState('');
-  const [packingList, setPackingList] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const tips = [
+    {
+      text: '1. Know Before You Go — Research local laws, safety, and customs.',
+      link: 'https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories.html',
+    },
+    {
+      text: '2. Pack Smart & Light — Use packing cubes and versatile clothing.',
+      link: 'https://www.realsimple.com/work-life/travel/travel-packing-tips',
+    },
+    {
+      text: '3. Backup Insurance & Docs — Get insurance and duplicate documents.',
+      link: 'https://www.insuremytrip.com/',
+    },
+    {
+      text: '4. Health Precautions — Pack a med kit and follow safe food/water habits.',
+      link: 'https://www.cdc.gov/travel',
+    },
+    {
+      text: '5. Stay Aware — Avoid scams and use VPNs over public Wi-Fi.',
+      link: 'https://www.nomadicmatt.com/travel-blogs/common-travel-scams/',
+    },
+    {
+      text: '6. Understand Local Risks — Check travel and weather advisories.',
+      link: 'https://www.weather.gov/',
+    },
+    {
+      text: '7. Plan with Flexibility — Include rest days and leave room to explore.',
+      link: 'https://www.efultimatebreak.com/blog/travel-tips/how-to-plan-a-trip',
+    },
+    {
+      text: '8. Embrace the Unknown — Try new foods and meet new people.',
+      link: 'https://www.awaylands.com/',
+    },
+    {
+      text: '9. Save Money — Book midweek, pack snacks, and use loyalty rewards.',
+      link: 'https://thriftytraveler.com/',
+    },
+    {
+      text: '10. Be Courteous — Learn key phrases and respect local customs.',
+      link: 'https://www.worldpackers.com/articles/travel-etiquette',
+    },
+  ];
 
-    // Placeholder — will fetch from backend later
-    const fakeResponse = {
-      items: [
-        'Light jacket',
-        'Power adapter (Type A/B)',
-        'Travel umbrella',
-        'Walking shoes',
-        'Local currency',
-        'Pocket tissues',
-        'SIM card or mobile Wi-Fi',
-        'Toiletries',
-        'Translation app',
-        'Weather-appropriate clothes',
-      ],
-    };
+  const essentials = [
+    {
+      text: '🔌 Power adapter (Type A/B)',
+      link: 'https://www.power-plugs-sockets.com/',
+    },
+    {
+      text: '💵 Local currency',
+      link: 'https://wise.com/us/currency-converter/',
+    },
+    {
+      text: '📱 SIM card or mobile Wi-Fi',
+      link: 'https://www.travelsim.com/',
+    },
+    {
+      text: '🧼 Toiletries',
+      link: 'https://www.realsimple.com/health/preventative-health/personal-hygiene-products',
+    },
+    {
+      text: '🧳 Light backpack',
+      link: 'https://www.travelandleisure.com/best-backpacks-for-travel-7487490',
+    },
+    {
+      text: '🗺️ Translation app',
+      link: 'https://translate.google.com/',
+    },
+  ];
 
-    setPackingList(fakeResponse.items);
-  };
+  useEffect(() => {
+    document.body.classList.toggle('dark-mode', darkMode);
+  }, [darkMode]);
 
   return (
     <div className="app-container">
-      <h1>🌍 Travel Essentials</h1>
+      <button className="toggle-theme" onClick={() => setDarkMode(!darkMode)}>
+        {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+      </button>
 
-      <form onSubmit={handleSubmit} className="form">
-        <label>
-          Destination:
-          <select value={location} onChange={(e) => setLocation(e.target.value)} required>
-            <option value="">-- Select Location --</option>
-            <option value="Tokyo">Tokyo</option>
-            <option value="Paris">Paris</option>
-            <option value="New York">New York</option>
-            <option value="Rio de Janeiro">Rio de Janeiro</option>
-            <option value="Cape Town">Cape Town</option>
-          </select>
-        </label>
+      <h1>🌍 Top 10 Travel Tips</h1>
 
-        <label>
-          Month:
-          <select value={month} onChange={(e) => setMonth(e.target.value)} required>
-            <option value="">-- Select Month --</option>
-            {[
-              'January', 'February', 'March', 'April', 'May', 'June',
-              'July', 'August', 'September', 'October', 'November', 'December',
-            ].map((m) => (
-              <option key={m} value={m}>{m}</option>
-            ))}
-          </select>
-        </label>
+      <div className="results simple-list">
+        {tips.map((tip, i) => (
+          <p key={i}>
+            {tip.text}{' '}
+            <a href={tip.link} target="_blank" rel="noopener noreferrer">
+              Learn more →
+            </a>
+          </p>
+        ))}
+      </div>
 
-        <button type="submit">Get Packing List</button>
-      </form>
+      <hr />
 
-      {packingList.length > 0 && (
-        <div className="results">
-          <h2>Top 10 Essentials for {location} in {month}</h2>
-          <ul>
-            {packingList.map((item, index) => (
-              <li key={index}>✅ {item}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <h2>🧳 Travel Essentials</h2>
+      <div className="results simple-list">
+        {essentials.map((item, i) => (
+          <p key={i}>
+            {item.text}{' '}
+            <a href={item.link} target="_blank" rel="noopener noreferrer">
+              Learn more →
+            </a>
+          </p>
+        ))}
+      </div>
     </div>
   );
 }
