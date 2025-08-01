@@ -3,6 +3,8 @@ import './App.css';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [location, setLocation] = useState('');
+  const [weather, setWeather] = useState(null);
 
   const tips = [
     {
@@ -19,7 +21,7 @@ function App() {
     },
     {
       text: '4. Health Precautions — Pack a med kit and follow safe food/water habits.',
-      link: 'https://www.cdc.gov/travel',
+      link: 'https://www.health.harvard.edu/',
     },
     {
       text: '5. Stay Aware — Avoid scams and use VPNs over public Wi-Fi.',
@@ -27,7 +29,7 @@ function App() {
     },
     {
       text: '6. Understand Local Risks — Check travel and weather advisories.',
-      link: 'https://www.weather.gov/',
+      link: 'https://www.cdc.gov/travel',
     },
     {
       text: '7. Plan with Flexibility — Include rest days and leave room to explore.',
@@ -53,30 +55,53 @@ function App() {
       link: 'https://www.power-plugs-sockets.com/',
     },
     {
-      text: '💵 Local currency',
-      link: 'https://wise.com/us/currency-converter/',
+      text: '💵 Local currency tips',
+      link: 'https://www.oanda.com/currency-converter/',
     },
     {
       text: '📱 SIM card or mobile Wi-Fi',
-      link: 'https://www.travelsim.com/',
+      link: 'https://www.nomadicmatt.com/travel-blogs/best-sim-cards-for-travel/',
     },
     {
-      text: '🧼 Toiletries',
-      link: 'https://www.realsimple.com/health/preventative-health/personal-hygiene-products',
+      text: '🧼 Travel toiletries checklist',
+      link: 'https://www.travelandleisure.com/style/beauty/travel-toiletries-packing-checklist',
     },
     {
-      text: '🧳 Light backpack',
-      link: 'https://www.travelandleisure.com/best-backpacks-for-travel-7487490',
+      text: '🧳 Light backpack tips',
+      link: 'https://www.cleverhiker.com/best-backpacks/',
     },
     {
-      text: '🗺️ Translation app',
-      link: 'https://translate.google.com/',
+      text: '🗺️ Translation apps',
+      link: 'https://www.techradar.com/best/translation-apps',
     },
   ];
 
   useEffect(() => {
     document.body.classList.toggle('dark-mode', darkMode);
   }, [darkMode]);
+
+  const fetchWeather = async () => {
+    const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+    if (!location) return;
+
+    try {
+      const res = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`
+      );
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.message);
+
+      const tempC = data.main.temp;
+      const tempF = (tempC * 9) / 5 + 32;
+      const condition = data.weather[0].main;
+
+      setWeather({ tempC: tempC.toFixed(1), tempF: tempF.toFixed(1), condition });
+    } catch (err) {
+      console.error(err);
+      setWeather(null);
+    }
+  };
 
   return (
     <div className="app-container">
@@ -85,7 +110,6 @@ function App() {
       </button>
 
       <h1>🌍 Top 10 Travel Tips</h1>
-
       <div className="results simple-list">
         {tips.map((tip, i) => (
           <p key={i}>
@@ -99,7 +123,24 @@ function App() {
 
       <hr />
 
-      <h2>🧳 Travel Essentials</h2>
+      <h1>🌐 Travel Essentials</h1>
+      <input
+        type="text"
+        placeholder="Enter destination (e.g. Tokyo)"
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+      />
+      <button onClick={fetchWeather}>Get Weather</button>
+
+      {weather && (
+        <div className="weather-info">
+          <h3>Current Weather in {location}</h3>
+          <p>
+            {weather.tempC}°C / {weather.tempF}°F — {weather.condition}
+          </p>
+        </div>
+      )}
+
       <div className="results simple-list">
         {essentials.map((item, i) => (
           <p key={i}>
