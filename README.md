@@ -1,50 +1,67 @@
-# 🌍 Travel First – Smart Packing Tips Based on Destination & Weather
+# 🌍 Travel First
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7d4c6ea0-18a9-49b6-a623-bc9f487d30c7/deploy-status)](https://travel-first-bali.netlify.app/)
+A beautifully designed travel essentials and safety guide built with React + Vite. Plan smarter, pack lighter, and travel with peace of mind.
 
-Welcome to **Travel First**, a smart travel assistant that helps you plan for any trip with personalized, weather-aware travel tips and essentials — all with a beautiful dark/light toggle and curated best practices.
+🔗 **Live Site**: [travel-first-bali.netlify.app](https://travel-first-bali.netlify.app/)
 
-### 🌐 Live Demo  
-👉 [https://travel-first-bali.netlify.app](https://travel-first-bali.netlify.app)
+![Travel First Screenshot](./public/assets/travel-screenshot.png)
 
 ---
 
 ## ✨ Features
 
-- ✅ **Top 10 Travel Tips** with helpful external resources
-- ☀️🌙 **Dark Mode Toggle** for day or night use
-- 🌡️ **Real-time Weather** by destination
-- 🎒 **Auto-Generated Essentials List** based on location, climate, and travel type
-- 🔗 **Helpful "Learn More" links** for deeper travel prep
+- ✅ Top 10 essential travel tips — clickable and clean UI
+- ✅ Curated list of must-have travel items with helpful links
+- ✅ Live weather lookup by destination (OpenWeather API)
+- ✅ Toggle between Light/Dark Mode
+- ✅ Mobile responsive and visually engaging
+- ✅ Custom design with themed travel images
 
 ---
 
-## 🔧 Tech Stack
+## 📦 Tech Stack
 
-- **Frontend**: React + Vite
-- **API**: OpenWeatherMap
-- **Styling**: Responsive CSS (light/dark themes)
-- **Deployment**: Netlify
+- **React** with Vite
+- **CSS Modules** for styling
+- **OpenWeatherMap API**
+- **Netlify** for deployment
 
 ---
 
-## 📁 Project Setup
+## 📸 How to Add a Screenshot
 
-```bash
-npm install
-npm run dev
-Make sure to add your OpenWeatherMap API key to a .env file:
+The image shown above is saved locally at:
+📁 public/assets/travel-screenshot.png
 
-bash
+yaml
 Copy
 Edit
-VITE_WEATHER_API_KEY=your_api_key_here
-🚀 Deployment
-Deployed using Netlify
-🔗 Live Site
 
-🤝 Contributing
-Open to contributions and enhancements — feel free to fork or open a pull request!
+If you're replacing it, simply overwrite that file or change the path in the markdown.
 
-📘 License
-MIT © Keith Mazza
+---
+
+## 🚀 Getting Started
+
+```bash
+git clone https://github.com/kmazza-hub/travel-first.git
+cd travel-first
+npm install
+npm run dev
+🔐 Environment Variables
+Create a .env file in the root directory:
+
+env
+Copy
+Edit
+VITE_WEATHER_API_KEY=your_openweather_api_key
+🧑‍💻 Author
+Keith Mazza
+GitHub | LinkedIn
+
+©️ License
+MIT License. © 2025 Keith Mazza
+
+yaml
+Copy
+Edit
