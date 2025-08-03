@@ -51,27 +51,27 @@ function App() {
 
   const essentials = [
     {
-      text: '🔌 Power adapter (Type A/B)',
+      text: 'Power adapter (Type A/B)',
       link: 'https://www.power-plugs-sockets.com/',
     },
     {
-      text: '💵 Local currency tips',
+      text: 'Local currency tips',
       link: 'https://www.oanda.com/currency-converter/',
     },
     {
-      text: '📱 SIM card or mobile Wi-Fi',
+      text: 'SIM card or mobile Wi-Fi',
       link: 'https://www.nomadicmatt.com/travel-blogs/best-sim-cards-for-travel/',
     },
     {
-      text: '🧼 Travel toiletries checklist',
+      text: 'Travel toiletries checklist',
       link: 'https://www.travelandleisure.com/style/beauty/travel-toiletries-packing-checklist',
     },
     {
-      text: '🧳 Light backpack tips',
+      text: 'Light backpack tips',
       link: 'https://www.cleverhiker.com/best-backpacks/',
     },
     {
-      text: '🗺️ Translation apps',
+      text: 'Translation apps',
       link: 'https://www.techradar.com/best/translation-apps',
     },
   ];
@@ -109,48 +109,90 @@ function App() {
         {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
       </button>
 
-      <h1>🌍 Top 10 Travel Tips</h1>
-      <div className="results simple-list">
-        {tips.map((tip, i) => (
-          <p key={i}>
-            {tip.text}{' '}
-            <a href={tip.link} target="_blank" rel="noopener noreferrer">
-              Learn more →
-            </a>
-          </p>
-        ))}
-      </div>
-
-      <hr />
-
-      <h1>🌐 Travel Essentials</h1>
-      <input
-        type="text"
-        placeholder="Enter destination (e.g. Tokyo)"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-      />
-      <button onClick={fetchWeather}>Get Weather</button>
-
-      {weather && (
-        <div className="weather-info">
-          <h3>Current Weather in {location}</h3>
-          <p>
-            {weather.tempC}°C / {weather.tempF}°F — {weather.condition}
-          </p>
+      {/* Travel Tips Section */}
+      <div className="section-box">
+        <div className="section-header">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+            alt="Travel Tips"
+            className="section-image"
+          />
+          <div className="section-title">Top 10 Travel Tips</div>
         </div>
-      )}
 
-      <div className="results simple-list">
-        {essentials.map((item, i) => (
-          <p key={i}>
-            {item.text}{' '}
-            <a href={item.link} target="_blank" rel="noopener noreferrer">
-              Learn more →
+        <div className="card-grid">
+          {tips.map((tip, i) => (
+            <a
+              key={i}
+              href={tip.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tip-card"
+            >
+              {tip.text}
             </a>
-          </p>
-        ))}
+          ))}
+        </div>
       </div>
+
+      {/* Travel Essentials Section */}
+      <div className="section-box">
+        <div className="section-header">
+          <img
+            src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"
+            alt="Travel Essentials"
+            className="section-image"
+          />
+          <div className="section-title">Travel Essentials</div>
+        </div>
+
+        <div className="card-grid">
+          {essentials.map((item, i) => (
+            <a
+              key={i}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tip-card"
+            >
+              {item.text}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Travel Weather Section */}
+      <div className="section-box">
+        <div className="section-header">
+          <img
+            src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80"
+            alt="Travel Weather"
+            className="section-image"
+          />
+          <div className="section-title">Weather by Destination</div>
+        </div>
+
+        <div className="weather-section">
+          <input
+            type="text"
+            placeholder="Enter destination (e.g. Tokyo)"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+          <button onClick={fetchWeather}>Get Weather</button>
+          {weather && (
+            <div className="weather-info">
+              <h3>Current Weather in {location}</h3>
+              <p>
+                {weather.tempC}°C / {weather.tempF}°F — {weather.condition}
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+        <footer className="footer">
+        © {new Date().getFullYear()} Travel First by Keith Mazza. All rights reserved.
+      </footer>
     </div>
   );
 }

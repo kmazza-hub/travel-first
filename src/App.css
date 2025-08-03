@@ -1,9 +1,7 @@
-/* src/App.css */
-
 :root {
-  --bg: #f9f9f9;
+  --bg: #fdf5e6; /* light tan */
   --text: #222;
-  --card: #ffffff;
+  --card: #fdf5e6;
   --primary: #0077cc;
   --card-shadow: rgba(0, 0, 0, 0.08);
 }
@@ -26,14 +24,28 @@ body {
 }
 
 .app-container {
-  max-width: 800px;
+  max-width: 960px;
   margin: 2rem auto;
-  padding: 2rem;
-  background: var(--card);
-  border-radius: 10px;
-  box-shadow: 0 4px 16px var(--card-shadow);
-  box-sizing: border-box;
+  padding: 1.5rem;
+  background-color: var(--bg);
   transition: background-color 0.3s, color 0.3s;
+}
+
+.section-box {
+  background-color: var(--card);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 16px var(--card-shadow);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.section-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  object-fit: cover;
 }
 
 h1,
@@ -41,8 +53,31 @@ h2,
 h3 {
   text-align: center;
   color: var(--primary);
-  margin-bottom: 1.25rem;
   font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.tip-card {
+  background-color: var(--card);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tip-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  color: var(--primary);
 }
 
 .weather-info {
@@ -50,30 +85,36 @@ h3 {
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 }
 
-.results.simple-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.results.simple-list p {
-  margin: 0;
+input[type='text'] {
+  padding: 0.6rem;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 1rem auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   font-size: 1rem;
-  line-height: 1.6;
 }
 
-.results.simple-list a {
-  color: var(--primary);
-  text-decoration: none;
+button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
   font-weight: bold;
-  margin-left: 0.25rem;
+  color: #fff;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  transition: background-color 0.2s;
 }
 
-.results.simple-list a:hover {
-  text-decoration: underline;
+button:hover {
+  background-color: #005fa3;
 }
 
 .toggle-theme {
@@ -88,40 +129,52 @@ h3 {
   cursor: pointer;
 }
 
-button {
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
-  background-color: var(--primary);
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  display: block;
-  margin: 1.5rem auto;
-  transition: background-color 0.2s;
-}
-
-button:hover {
-  background-color: #005fa3;
-}
-
-hr {
-  border: none;
-  height: 1px;
-  background-color: #ccc;
-  margin: 2rem 0;
-}
-
-@media (max-width: 600px) {
-  .app-container {
-    margin: 1rem;
-    padding: 1.5rem;
+@media (max-width: 700px) {
+  .card-grid {
+    grid-template-columns: 1fr;
   }
 
   .toggle-theme {
+    font-size: 0.8rem;
     top: 0.5rem;
     right: 0.5rem;
-    font-size: 0.8rem;
   }
+
+  .app-container {
+    padding: 1rem;
+  }
+}
+
+.section-header {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.section-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.section-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 2rem 0;
+  color: #555;
+  opacity: 0.8;
 }
