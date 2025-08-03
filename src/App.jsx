@@ -21,7 +21,7 @@ function App() {
     },
     {
       text: '4. Health Precautions — Pack a med kit and follow safe food/water habits.',
-      link: 'https://www.health.harvard.edu/',
+      link: 'https://www.cdc.gov/travel/page/travelers-health.html',
     },
     {
       text: '5. Stay Aware — Avoid scams and use VPNs over public Wi-Fi.',
@@ -29,19 +29,19 @@ function App() {
     },
     {
       text: '6. Understand Local Risks — Check travel and weather advisories.',
-      link: 'https://www.cdc.gov/travel',
+      link: 'https://www.weather.gov/safety',
     },
     {
       text: '7. Plan with Flexibility — Include rest days and leave room to explore.',
-      link: 'https://www.efultimatebreak.com/blog/travel-tips/how-to-plan-a-trip',
+      link: 'https://www.nomadicmatt.com/travel-blogs/how-to-plan-a-trip/',
     },
     {
       text: '8. Embrace the Unknown — Try new foods and meet new people.',
-      link: 'https://www.awaylands.com/',
+      link: 'https://www.lonelyplanet.com/articles/how-to-meet-people-when-traveling-solo',
     },
     {
       text: '9. Save Money — Book midweek, pack snacks, and use loyalty rewards.',
-      link: 'https://thriftytraveler.com/',
+      link: 'https://www.thriftytraveler.com/',
     },
     {
       text: '10. Be Courteous — Learn key phrases and respect local customs.',
@@ -72,7 +72,7 @@ function App() {
     },
     {
       text: 'Translation apps',
-      link: 'https://www.techradar.com/best/translation-apps',
+      link: 'https://www.tomsguide.com/best-picks/best-translation-apps',
     },
   ];
 
@@ -190,7 +190,8 @@ function App() {
           )}
         </div>
       </div>
-        <footer className="footer">
+
+      <footer className="footer">
         © {new Date().getFullYear()} Travel First by Keith Mazza. All rights reserved.
       </footer>
     </div>
